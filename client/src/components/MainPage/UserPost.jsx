@@ -10,6 +10,12 @@ const UserHeader = ({ user }) => {
   )
 }
 
+const PostCreation = ({ img_link }) => {
+  return (
+    <img className = "w-8/12 h-8/12" src={img_link} />
+  )
+}
+
 // The displayed content (img, video, ...)
 const PostContent = ({ content }) => {
   return (
@@ -32,10 +38,11 @@ function Comments({ comments }) {
 }
 
 // Vertical list type card
-const UserPost = ({ user, content, comments }) => {
+const UserPost = ({ user, img_link, content, comments }) => {
   return (
     <div className="border border-gray-300 rounded-md p-4 mb-4">
       <UserHeader user={user} />
+      <PostCreation img_link={img_link} />
       <PostContent content={content} />
       <Comments comments={comments} />
     </div>

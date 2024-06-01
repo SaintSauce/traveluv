@@ -6,6 +6,12 @@ import {
 
 // Import Pages
 import HomePage from './pages/HomePage';
+import PlanningPage from './pages/PlanningPage';
+import ProfilePage from './pages/ProfilePage';
+import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage';
+import CreatePage from './pages/CreatePage';
+import DiscoverPage from './pages/DiscoverPage';
 
 const router = createBrowserRouter([
   {
@@ -13,8 +19,28 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "about",
-    element: <div>About</div>,
+    path: "plan",
+    element: <PlanningPage />,
+  },
+  {
+    path: "profile",
+    element: <ProfilePage />,
+  },
+  {
+    path: "create",
+    element: <CreatePage />,
+  },
+  {
+    path: "discover",
+    element: <DiscoverPage />,
+  },
+  {
+    path: "signup",
+    element: <SignUpPage />,
+  },
+  {
+    path: "login",
+    element: <LoginPage />,
   },
 ]);
 

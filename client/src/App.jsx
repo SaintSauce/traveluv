@@ -1,21 +1,16 @@
 import React from 'react'
-import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
-  RouterProvider,
-  Route,
-  Link,
+  RouterProvider
 } from "react-router-dom";
+
+// Import Pages
+import HomePage from './pages/HomePage';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
+    element: <HomePage />,
   },
   {
     path: "about",

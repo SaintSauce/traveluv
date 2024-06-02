@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 // Top right navbars
 import TopRightNavBar from '../components/MainPage/TopRightNavBar'
@@ -10,21 +10,23 @@ import SearchBox from '../components/MainPage/SearchBox'
 
 // L-way
 import HeadLogo from '../components/MainPage/HeadLogo'
-import LeftCalendar from '../components/MainPage/LeftCalendar'
-import LeftExtensions from '../components/MainPage/LeftExtensions'
+
+// AuthContext
+import { useAuth } from '../context/AuthContext'
 
 const HomePage = () => {
+
+    const { isAuthenticated } = useAuth();
+    
     return (
-        <div className="flex w-screen h-screen no-scrollbar overflow-y-hidden overflow-x-hidden">
+        <div className="flex w-screen h-screen overflow-x-hidden overflow-y-hidden">
             <div className="relative w-3/12">
                 <HeadLogo />
-                <LeftCalendar />
-                <LeftExtensions />
             </div>
             <div className="relative ml-12 w-8/12">
                 <div className="flex">
                     <SearchBox />
-                    <TopRightNavBar />
+                    {isAuthenticated ? <TopRightNavBar /> : <UnsignedTopRightNavBar />}
                 </div>
                 <InfiniteScrollList />
             </div>

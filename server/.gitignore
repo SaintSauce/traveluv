@@ -1,0 +1,19 @@
+# Node modules
+/node_modules
+
+# Environment variables
+.env
+
+# Log files
+*.log
+
+# Dependency directories
+/bin/
+/lib/
+/node_modules/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

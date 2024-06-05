@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 // Top right navbars
 import TopRightNavBar from '../components/MainPage/TopRightNavBar'
@@ -11,13 +11,19 @@ import SearchBox from '../components/MainPage/SearchBox'
 // L-way
 import HeadLogo from '../components/MainPage/HeadLogo'
 
-// AuthContext
-import { useAuth } from '../context/AuthContext'
+// State Management
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../actions/authActions';
 
 const HomePage = () => {
+    const user = useSelector(state => state.auth.user);
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    const dispatch = useDispatch();
 
-    const { isAuthenticated } = useAuth();
-    
+    const handleLogout = () => {
+        dispatch(logout)
+    }
+
     return (
         <div className="flex w-screen h-screen overflow-x-hidden overflow-y-hidden">
             <div className="relative w-3/12">
@@ -26,7 +32,11 @@ const HomePage = () => {
             <div className="relative ml-12 w-8/12">
                 <div className="flex">
                     <SearchBox />
-                    {isAuthenticated ? <TopRightNavBar /> : <UnsignedTopRightNavBar />}
+                    {isAuthenticated ? (
+                        <TopRightNavBar />
+                    ) : (
+                        <UnsignedTopRightNavBar />
+                    )}
                 </div>
                 <InfiniteScrollList />
             </div>
